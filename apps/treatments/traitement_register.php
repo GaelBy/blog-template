@@ -33,6 +33,7 @@ if (isset($_POST['pseudo'], $_POST['email'], $_POST['confirmEmail'], $_POST['pas
 			'email' => $email,
 			'password' => $password
 			));
+		header('Location: index.php?page="login');
 	}
 }
 ?>
