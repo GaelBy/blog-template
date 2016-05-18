@@ -6,6 +6,7 @@
 		else
 			require 'views/header_user.phtml';
 	}
+	
 	else
 		require 'views/header_guest.phtml';
 ?> 
