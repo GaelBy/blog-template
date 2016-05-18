@@ -43,7 +43,12 @@
 					}
 					else if ($action == 'edit');
 					{
-						//modifier un article
+						if (isset($_GET['id']))
+						{
+							//modifier un article
+						}
+						else
+							$error = 'Il manque l\'id de l\'article';
 					}
 				}
 			}
