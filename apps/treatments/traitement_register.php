@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['pseudo'], $_POST['email'], $_POST['confirmEmail'] $_POST['password'], $_POST['confirmPassword']))
+if (isset($_POST['pseudo'], $_POST['email'], $_POST['confirmEmail'], $_POST['password'], $_POST['confirmPassword']))
 {
 
 	$pseudo = $_POST['pseudo'];
