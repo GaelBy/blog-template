@@ -5,6 +5,18 @@
 	$page = 'home' /*page courante : home par default*/ ;
 	$error = '';
 
+<<<<<<< HEAD
+=======
+	try 
+	{
+		$bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'troiswa');
+	}
+	catch (Exception $e)
+	{
+		die('Erreur : ' . $e->getMessage());
+	}
+	
+>>>>>>> cde2324f13717a322e0a7ec1ad697104a44de34b
 	if (isset($_GET['page']))
 	{
 		if (in_array($_GET['page'], $access))

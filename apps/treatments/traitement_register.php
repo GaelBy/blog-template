@@ -23,5 +23,16 @@ if (isset($_POST['pseudo'], $_POST['email'], $_POST['confirmEmail'], $_POST['pas
 		$error = 'Mots de passe différents !';
 	else if (strlen($password) <4)
 		$error = 'password trop court ! (au moin 4 caractères)';
+
+	if (empty($error))
+	{
+		$password = sha1($password);
+		$req = $bdd->prepare('INSERT INTO users(login, email, password) VALUES (:login, :email, :password)');
+		$req->execute(array(
+			'login' => $pseudo,
+			'email' => $email,
+			'password' => $password
+			));
+	}
 }
 ?>
