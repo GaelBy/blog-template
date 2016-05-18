@@ -28,11 +28,11 @@
 					$error = 'L\'url de votre image n\'est pas valide';
 				if (strlen($description) < 10 )
 					$error ='Description trop courte';
-				elseif (strlen($description) > 50) 
+				else if (strlen($description) > 50) 
 					$error = 'Description trop longue';
 				if (strlen($content) < 30 )
 					$error ='Le contenu est trop court';
-				elseif (strlen($content) > 500) 
+				else if (strlen($content) > 500) 
 					$error = 'Le contenu est trop long';
 				if (empty($error))
 				{
