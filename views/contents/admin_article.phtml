@@ -1,0 +1,19 @@
+<h2>Ajouter - Editer un article :</h2>
+<form method="POST">
+	<div>
+		<label for="title">Titre : </label>
+		<input type="text" name="title" placeholder="<?=$title?>" />
+	</div>
+	<div>
+		<label for="imgUrl">Illustration (url) : </label>
+		<input type="url" name="imgUrl" placeholder="<?=$imgUrl?>" />
+	</div>
+	<div>
+		<label for="description">Description : </label>
+		<textarea name="description" cols="30" rows="3"><?=$description?></textarea>
+	</div>
+	<div>
+		<label for="content">Contenu : </label>
+		<textarea name="content" cols="30" rows="10"><?=$content?></textarea>
+	</div>
+</form>
