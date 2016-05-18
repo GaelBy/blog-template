@@ -1,7 +1,7 @@
 <?php
 	/*if (isset($_SESSION['user']))
 	{
-		if (isset($_SESSION['id']))
+		if (isset($_GET['id']))
 		{
 			//modifier un article
 		}
