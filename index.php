@@ -3,6 +3,16 @@
 	$access = array('home', 'login', 'register', 'admin_article', 'article', 'commentaire', 'logout');
 	$page = 'home' /*page courante : home par default*/ ;
 	$error = '';
+
+	try 
+	{
+		$bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'troiswa');
+	}
+	catch (Exception $e)
+	{
+		die('Erreur : ' . $e->getMessage());
+	}
+	
 	if (isset($_GET['page']))
 	{
 		if (in_array($_GET['page'], $access))
