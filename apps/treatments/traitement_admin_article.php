@@ -3,7 +3,7 @@
 	{
 		if ($_SESSION['login'] == 'admin')
 		{
-			if (isset($_GET['action'])
+			if (isset($_GET['action']))
 			{
 				$action = $_GET['action'];
 				if ($action == 'delete')
