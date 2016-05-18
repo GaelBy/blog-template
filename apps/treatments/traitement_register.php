@@ -11,8 +11,8 @@ if (isset($_POST['pseudo'], $_POST['email'], $_POST['confirmEmail'], $_POST['pas
 
 	if (strlen($pseudo) <2)
 		$error = 'Votre pseudo est trop court ! (< 2 caractères)';
-	else if (strlen($pseudo) >30)
-		$error = 'Votre pseudo est trop long ! (>30 caractères)';
+	else if (strlen($pseudo) >32)
+		$error = 'Votre pseudo est trop long ! (> 32 caractères)';
 
 	if ($email != $confirmEmail)
 		$error = 'E-mail différents !';
@@ -22,7 +22,7 @@ if (isset($_POST['pseudo'], $_POST['email'], $_POST['confirmEmail'], $_POST['pas
 	if ($password != $confirmPassword)
 		$error = 'Mots de passe différents !';
 	else if (strlen($password) <4)
-		$error = 'password trop court ! (au moin 4 caractères)';
+		$error = 'password trop court ! (au moins 4 caractères)';
 
 	if (empty($error))
 	{
@@ -33,7 +33,8 @@ if (isset($_POST['pseudo'], $_POST['email'], $_POST['confirmEmail'], $_POST['pas
 			'email' => $email,
 			'password' => $password
 			));
-		header('Location: index.php?page="login');
+		header('Location: index.php?page=login');
+		exit;
 	}
 }
 ?>
