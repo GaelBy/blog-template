@@ -1,1 +1,1 @@
-# blog-template - Gael - Mickael - Thomas - Marlone
+# blog-template - Gael - Mickael - Thomas - Marlone - 
