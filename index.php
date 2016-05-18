@@ -1,4 +1,4 @@
-<?php
+<?php	
 	$access = array(/* Tab contenant les pages disponibles du site */);
 	$page = 'home' /*page courante : home par default*/ ;
 	if (isset($_GET['page']))
