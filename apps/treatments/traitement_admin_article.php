@@ -40,7 +40,6 @@
 					{
 						if ($action == 'add')
 						{
-							$date = date('d.m.Y');
 							//creation d'un article
 						}
 						else if ($action == 'edit');
