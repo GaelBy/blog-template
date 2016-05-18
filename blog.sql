@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 18 Mai 2016 à 15:08
+-- Généré le: Mer 18 Mai 2016 à 16:10
 -- Version du serveur: 5.5.47-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.14
 
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `content` varchar(1023) NOT NULL,
   `image` varchar(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -64,8 +65,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(63) NOT NULL,
   `password` varchar(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` varchar(7) NOT NULL DEFAULT 'user' COMMENT 'user ou admin',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `login`, `email`, `password`, `date`, `status`) VALUES
+(1, 'Gael', 'a.bc@fake.com', '6f57f5d7e5d32efc66f7ef71d6b65aa8418cdd2e', '2016-05-18 14:01:25', 'admin'),
+(2, 'Arteast', 'arteast.academy@outlook.com', '9f30faff608f538afe9e716c7384c1dd7305236d', '2016-05-18 14:02:54', 'admin'),
+(3, 'Mickwan', 'fake@fake.fake', 'c2c590a2b00217d7c6e8ad58431674ae1db74a81', '2016-05-18 14:03:43', 'admin'),
+(4, 'Marlone', 'bertrandmarlone@gmail.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', '2016-05-18 14:05:04', 'admin'),
+(5, 'toto', 'toto@toto.to', '45c571a156ddcef41351a713bcddee5ba7e95460', '2016-05-18 14:07:18', 'user');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
