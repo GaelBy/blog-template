@@ -58,8 +58,8 @@
 						{
 							//creation d'un article
 							$author = $_SESSION['login'];
-							$query = 'INSERT INTO articles (author, title, description, content, image) 
-							VALUES ('.$author.','.$title.','.$description.','.$content.','.$imgUrl.')';
+							$query = "INSERT INTO articles (author, title, description, content, image) 
+							VALUES ('".$author."','".$title."','".$description."','".$content."','".$imgUrl."')";
 							mysqli_query($link, $query);
 							header('Location: index.php?page=home');
 							exit;
@@ -71,8 +71,8 @@
 								//modifier un article
 								$id = $_GET['id'];
 								$lastDate = date('Y-m-d H:i:s');
-								$query = 'UPDATE articles SET title = '.$title.', description = '.$description.', content = '.$content.', image = '.$imgUrl.', `date` = '.$createDate.', last_date = '.$lastDate.' 
-								WHERE id = '.$id;
+								$query = "UPDATE articles SET title = '".$title."', description = '".$description."', content = '".$content."', image = '".$imgUrl."', `date` = '".$createDate."', last_date = '".$lastDate."' 
+								WHERE id = ".$id;
 								mysqli_query($link, $query);
 								header('Location: index.php?page=home');
 								exit;

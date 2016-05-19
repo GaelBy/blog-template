@@ -26,7 +26,8 @@
 		if (empty($error))
 		{
 			$password = sha1($password);
-			$query = 'INSERT INTO users(login, email, password) VALUES ("'.$login.'", "'.$email.'", "'.$password.'")';
+			$query = "INSERT INTO users(login, email, password) 
+			VALUES ('".$login."', '".$email."', '".$password."')";
 			var_dump($query);
 			mysqli_query($link, $query);
 			header('Location: index.php?page=login');
