@@ -1,7 +1,7 @@
 <?php
 	$reqComm = "SELECT articles.title FROM comments INNER JOIN articles ON comments.id_article = articles.id";
 	$resultComm = mysqli_query($link, $reqComm);
-	$reqArticle = "SELECT id, author, title, description, content, image, 'date' FROM articles";
+	$reqArticle = "SELECT id, author, title, description, content, image, `date` FROM articles";
 	$resultArticle  = mysqli_query($link, $reqArticle);
 
 
