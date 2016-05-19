@@ -1,3 +1,3 @@
 <?php
-	require 'apps/contents/display_article.php';
+	require 'views/contents/home.phtml';
 ?>
