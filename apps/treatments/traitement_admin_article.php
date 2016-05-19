@@ -17,6 +17,7 @@
 						mysqli_stmt_bind_param($req, "i", $id);
 						mysqli_stmt_execute($req);
 						mysqli_stmt_close($req);
+						
 						//Supprimer les commentaires
 						$query = 'DELETE FROM comments WHERE id_article = ?';
 						$req = mysqli_prepare($link, $query);
@@ -36,20 +37,25 @@
 					$description = $_POST['description'];
 					$content = $_POST['content'];
 					$createDate = $_POST['createDate'];
+
 					if (strlen($title) < 3)
 						$error = 'Titre trop court';
 					else if (strlen($title) > 32)
 						$error = 'Titre trop long';
+
 					if (!filter_var($imgUrl, FILTER_VALIDATE_URL))
 						$error = 'L\'url de votre image n\'est pas valide';
+
 					if (strlen($description) < 10 )
 						$error ='Description trop courte';
 					else if (strlen($description) > 128) 
 						$error = 'Description trop longue';
+
 					if (strlen($content) < 30 )
 						$error ='Le contenu est trop court';
 					else if (strlen($content) > 1024) 
 						$error = 'Le contenu est trop long';
+
 					if (empty($error))
 					{
 						if ($action == 'add')
