@@ -1,1 +1,24 @@
-commentaire.phtml
+<h2>Commenter un article :</h2>
+
+<div class="error">
+	<?=$error?>
+</div>
+
+<form method="POST">
+	<div>
+		<label for="title">Titre : </label>
+		<input type="text" name="title" placeholder="<?=$title?>" />
+	</div>
+
+	<div>
+		<label for="description">Description : </label>
+		<textarea name="description" cols="30" rows="3"><?=$description?></textarea>
+	</div>
+
+	<div>
+		<label for="title">Auteur : </label>
+		<input type="text" name="title" placeholder="<?=$title?>" />
+	</div>
+
+	<button type="submit">Submit</button>
+</form>
