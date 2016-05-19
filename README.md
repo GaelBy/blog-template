@@ -39,7 +39,3 @@ Créer un repository sur github
 Inviter les membres du groupe (et moi)
 Mettez (ensemble) le projet git sur toutes les machines (et vérifiez bien que ça marche avant de vous lancer)
 Récupérer la structure mvc d'un membre et la push (ça sera la base du projet)
-
-- https://github.com/olivierdrg/blog_photos
-- https://github.com/GaelBy/blog-template
-- https://github.com/philippe-3wa/les-codeurs-du-dimanche
