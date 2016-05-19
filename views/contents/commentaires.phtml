@@ -1,0 +1,19 @@
+<h1>Commenter un article :</h1>
+
+<div class="error">
+	<?=$error?>
+</div>
+
+<form method="POST">
+	<div>
+		<label for="imgUrl">Illustration (url) : </label>
+		<input type="url" name="imgUrl" placeholder="Illustration (url)" />
+	</div>
+
+	<div>
+		<label for="content">Commentaire : </label>
+		<textarea name="content" cols="30" rows="3"></textarea>
+	</div>
+
+	<button type="submit">Submit</button>
+</form>
