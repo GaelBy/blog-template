@@ -6,7 +6,7 @@
 	$error = '';
 
 
-	$link = mysqli_connect("localhost", "root", "troiswa", "blog");
+	$link = mysqli_connect("localhost:8889", "root", "root", "blog");
 
 	if (!$link)
 	{
