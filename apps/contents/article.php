@@ -13,5 +13,5 @@
 
 		require'views/contents/article.phtml';
 	}
-$error = 'Article inconnu';
+	$error = 'Article inconnu';
 ?>

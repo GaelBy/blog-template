@@ -17,7 +17,8 @@
 						mysqli_query($link, $query);
 						
 						//Supprimer les commentaires
-						$query = 'DELETE FROM comments 
+						/** Pascal : On verra les cascades bientôt ! **/
+						$query = 'DELETE FROM comments
 						WHERE id_article = '.$id;
 						mysqli_query($link, $query);
 						header('Location: index.php?page=home');
@@ -37,19 +38,19 @@
 					if (strlen($title) < 3)
 						$error = 'Titre trop court';
 					else if (strlen($title) > 32)
-						$error = 'Titre trop long';
+						$error = 'Titre trop long';/** Pascal : Max dans la db : 63 **/
 
 					if (!filter_var($imgUrl, FILTER_VALIDATE_URL))
 						$error = 'L\'url de votre image n\'est pas valide';
 
 					if (strlen($description) < 10 )
 						$error ='Description trop courte';
-					else if (strlen($description) > 128) 
+					else if (strlen($description) > 128) /** Pascal : Max dans la db : 127 **/
 						$error = 'Description trop longue';
 
 					if (strlen($content) < 30 )
 						$error ='Le contenu est trop court';
-					else if (strlen($content) > 1024) 
+					else if (strlen($content) > 1024) /** Pascal : Max dans la db : 1023 **/
 						$error = 'Le contenu est trop long';
 
 					if (empty($error))
@@ -58,6 +59,7 @@
 						{
 							//creation d'un article
 							$author = $_SESSION['login'];
+
 							$query = "INSERT INTO articles (author, title, description, content, image) 
 							VALUES ('".$author."','".$title."','".$description."','".$content."','".$imgUrl."')";
 							mysqli_query($link, $query);
@@ -77,7 +79,7 @@
 								content = '".$content."', 
 								image = '".$imgUrl."', 
 								`date` = '".$createDate."', 
-								last_date = '".$lastDate."' 
+								last_date = '".$lastDate."'' 
 								WHERE id = ".$id;
 								mysqli_query($link, $query);
 								header('Location: index.php?page=home');
@@ -95,7 +97,7 @@
 		else
 		{
 			//redirection + msg disant "Vous n'avez pas les droits necessaire pour acceder à cette page"
-			$error = 'Vous n\'avez pas les droits nécessaires';
+			$error = 'Vous n\'avez pas les droits nécessaires';/** Pascal : Le message d'erreur ne s'affichera jamais si vous faites une redirection :) **/
 			header('Location: index.php?page=home');
 			exit;
 		}
