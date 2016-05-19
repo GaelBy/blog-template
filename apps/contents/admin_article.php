@@ -10,15 +10,18 @@
 	if (isset($_GET['action'], $_GET['id']) && $_GET['action'] == 'edit')
 	{
 		$id = $_GET['id'];
-		$query = 'SELECT title, description, content, image, `date`
-				  FROM articles
-				  WHERE id = ?';
-		$req = mysqli_prepare($link, $query);
-		mysqli_stmt_bind_param($req, "i", $id);
-		mysqli_stmt_execute($req);
-		mysqli_stmt_bind_result($req, $titleEdit, $description, $content, $imgUrlEdit, $createDate);
-		mysqli_stmt_fetch($req);
-		mysqli_stmt_close($req);
+		$query = 'SELECT title, description, content, image, `date` 
+		FROM articles 
+		WHERE id = '.$id;
+		$res = mysqli_query($link, $query);
+		while ($article = mysqli_fetch_assoc($req))
+		{
+			$titleEdit = $article['title'];
+			$description = $article['description'];
+			$content = $article['content'];
+			$imgUrlEdit = $article['image'];
+			$createDate = $article['date'];
+		}
 	}
 	require 'views/contents/admin_article.phtml';
 ?>

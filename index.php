@@ -4,8 +4,6 @@
 	$access = array('home', 'login', 'register', 'admin_article', 'article', 'commentaires', 'logout');
 	$page = 'home' /*page courante : home par default*/ ;
 	$error = '';
-
-
 	$link = mysqli_connect("localhost", "root", "troiswa", "blog");
 
 	if (!$link)
