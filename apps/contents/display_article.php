@@ -13,6 +13,7 @@
 			if ($article['title'] = $comm['title'])
 				$nbrComm++;
 		}
+		$id = $article['id'];
 		require 'views/contents/display_article.phtml';
 	}
 ?>

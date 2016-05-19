@@ -2,7 +2,7 @@
 	if(isset($_GET['id']))
 	{
 		$id = $_GET['id'];
-		$query = 'SELECT id, author, title, content, image, "date" FROM articles WHERE id = ?';
+		$query = 'SELECT id, author, title, content, image, `date` FROM articles WHERE id = ?';
 		
 		$req = mysqli_prepare($link, $query);
 		mysqli_stmt_bind_param($req, "i", $id);
