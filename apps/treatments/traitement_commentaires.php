@@ -1,14 +1,14 @@
 <?php
 	if (isset($_SESSION['login']))
 	{
-		if ($_SESSION['status'] == 'admin')
+		if ($_SESSION['status'] == 'admin'
+			&& $_SESSION['status']== 'user'
+			&& $_GET['action']== 'edit')
 		{
-			if (isset($_POST['author'], $_POST['title'], $_POST['content'], $_POST['date']))
+			if (isset($_POST['content']))
 			{
-				$author = $_POST['author'];
-				$title = $_POST['title'];
+				$commid = $_GET['commid'];
 				$content = $_POST['content'];
-				$date = $_POST['date'];
 
 				if(strlen($content) <500)
 					$error = 'Votre commentaire est trop long ! (> 500 caractères)';
@@ -16,11 +16,10 @@
 				if(empty($error))
 				{
 					$author = $_SESSION['login'];
-					$query = 'INSERT INTO comments (author, title, content) VALUES (?,?,?)';
-					$req = mysqli_prepare($link, $query);
-					mysqli_stmt_bind_param($req, "sss", $author, $title, $content);
-					mysqli_stmt_execute($req);
-					mysqli_stmt_close($req);
+					$query = "UPDATE comments
+							  SET content = '".$content."'
+							  WHERE id = ".$commid;
+					mysqli_query($link, $query);
 					header('Location: index.php?page=home');
 					exit;
 				}
