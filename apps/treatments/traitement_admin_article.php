@@ -50,8 +50,11 @@
 						{
 							//creation d'un article
 							$author = $_SESSION['login'];
-							$query = 'INSERT INTO articles (author, title, description, content, image) VALUES ($author, $title, $description, $content, $imgUrl)';
-							mysqli_query($link, $query);
+							$query = 'INSERT INTO articles (author, title, description, content, image) VALUES (?,?,?,?,?)';
+							$req = mysqli_prepare($link, $query);
+							mysqli_stmt_bind_param($req, "sss", $author, $title, $description, $content, $imgUrl);
+							mysqli_stmt_execute($req);
+							mysqli_stmt_close($req);
 							header('Location: index.php?page=home');
 							exit;
 						}
