@@ -71,7 +71,13 @@
 								//modifier un article
 								$id = $_GET['id'];
 								$lastDate = date('Y-m-d H:i:s');
-								$query = "UPDATE articles SET title = '".$title."', description = '".$description."', content = '".$content."', image = '".$imgUrl."', `date` = '".$createDate."', last_date = '".$lastDate."' 
+								$query = "UPDATE articles 
+								SET title = '".$title."', 
+								description = '".$description."', 
+								content = '".$content."', 
+								image = '".$imgUrl."', 
+								`date` = '".$createDate."', 
+								last_date = '".$lastDate."' 
 								WHERE id = ".$id;
 								mysqli_query($link, $query);
 								header('Location: index.php?page=home');

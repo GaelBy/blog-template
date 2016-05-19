@@ -14,7 +14,7 @@
 		FROM articles 
 		WHERE id = '.$id;
 		$res = mysqli_query($link, $query);
-		while ($article = mysqli_fetch_assoc($req))
+		while ($article = mysqli_fetch_assoc($res))
 		{
 			$titleEdit = $article['title'];
 			$description = $article['description'];
