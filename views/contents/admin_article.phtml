@@ -5,11 +5,11 @@
 <form method="POST">
 	<div>
 		<label for="title">Titre : </label>
-		<input type="text" name="title" placeholder="<?=$title?>" />
+		<input type="text" name="title" placeholder="<?=$title?>" value="<?=$titleEdit?>"/>
 	</div>
 	<div>
 		<label for="imgUrl">Illustration (url) : </label>
-		<input type="url" name="imgUrl" placeholder="<?=$imgUrl?>" />
+		<input type="url" name="imgUrl" placeholder="<?=$imgUrl?>" value="<?=$imgUrlEdit?>"/>
 	</div>
 	<div>
 		<label for="description">Description : </label>
@@ -20,5 +20,5 @@
 		<textarea name="content" cols="30" rows="10"><?=$content?></textarea>
 	</div>
 
-		<button type="submit">Submit</button>
+		<button type="submit" name="createDate" value="<?=$createDate?>">Submit</button>
 </form>

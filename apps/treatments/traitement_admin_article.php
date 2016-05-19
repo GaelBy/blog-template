@@ -12,24 +12,30 @@
 					{
 						//Supprimer un article
 						$id = $_GET['id'];
-						$query = 'DELETE FROM articles WHERE id = $id LIMIT 1';
-						mysqli_query($link, $query);
+						$query = 'DELETE FROM articles WHERE id = ? LIMIT 1';
+						$req = mysqli_prepare($link, $query);
+						mysqli_stmt_bind_param($req, "i", $id);
+						mysqli_stmt_execute($req);
+						mysqli_stmt_close($req);
 						//Supprimer les commentaires
-						$query = 'DELETE FROM comments WHERE id_article = $id';
-						mysqli_query($link, $query);
+						$query = 'DELETE FROM comments WHERE id_article = ?';
+						$req = mysqli_prepare($link, $query);
+						mysqli_stmt_bind_param($req, "i", $id);
+						mysqli_stmt_execute($req);
+						mysqli_stmt_close($req);
 						header('Location: index.php?page=home');
 						exit;
 					}
 					else
 						$error = 'Il manque l\'id de l\'article';
 				}
-				else if (isset($_POST['title'], $_POST['imgUrl'], $_POST['description'], $_POST['content']))
+				else if (isset($_POST['title'], $_POST['imgUrl'], $_POST['description'], $_POST['content'], $_POST['createDate']))
 				{
 					$title = $_POST['title'];
 					$imgUrl = $_POST['imgUrl'];
 					$description = $_POST['description'];
 					$content = $_POST['content'];
-
+					$createDate = $_POST['createDate'];
 					if (strlen($title) < 3)
 						$error = 'Titre trop court';
 					else if (strlen($title) > 32)
@@ -65,8 +71,11 @@
 								//modifier un article
 								$id = $_GET['id'];
 								$lastDate = date('Y-m-d H:i:s');
-								$query = 'UPDATE articles SET title = $title, description = $description, content = $content, image = $imgUrl, `date` = $createDate, last_date = $lastDate WHERE id = $id';
-								mysqli_query($link, $query);
+								$query = 'UPDATE articles SET title = ?, description = ?, content = ?, image = ?, `date` = ?, last_date = ? WHERE id = ?';
+								$req = mysqli_prepare($link, $query);
+								mysqli_stmt_bind_param($req, "ssssssi", $title, $description, $content, $imgUrl, $createDate, $lastDate, $id);
+								mysqli_stmt_execute($req);
+								mysqli_stmt_close($req);
 								header('Location: index.php?page=home');
 								exit;
 							}
