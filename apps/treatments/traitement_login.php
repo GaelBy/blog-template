@@ -3,15 +3,17 @@
 	{
 		$email = $_POST['email'];
 		$pass = $_POST['password'];
-		$req = $bdd->query('SELECT * FROM users');
-		while ($users = $req->fetch())
+		$req = 'SELECT * FROM users';
+		$users = mysqli_query($link, $req);
+
+		while ($line = mysqli_fetch_assoc($users))
 		{
-			if ($users['email'] == $email)
+			if ($line['email'] == $email)
 			{
-				if ($users['password'] == sha1($pass))
+				if ($line['password'] == sha1($pass))
 				{
-					$_SESSION['login'] = $users['login'];
-					if ($users['status'] == 'admin')
+					$_SESSION['login'] = $line['login'];
+					if ($line['status'] == 'admin')
 						$_SESSION['status'] = 'admin';
 					header('Location: index.php?page=home');
 					exit;
