@@ -5,17 +5,26 @@
 .nav-menu-burger {
 	width: 50px;
 	height: 50px;
-	background-color: black;
+	background-color: white;
 	padding: 0.2em 0;
 }
 .open-menu-burger span{
 	display: block;
+	border-radius: 2px;
 	width: 40px;
 	height: 5px;
 	background-color: #1BB581;
-	margin: 0.5em auto;
+	margin: 0.5em 0.2em;
+}
+.open-burger {
+	padding-top: 0.2em;
+	height: 100%;
+	width: 100px;
+	background-color: black;
 }
 .menu-burger {
+	position: absolute;
+	z-index: 1;
 	display: none;
 	width: 100px;
 	padding: 0;
@@ -29,14 +38,4 @@
 .menu-burger li a {
 	color: #ccc;
 	text-decoration: none;
-}
-.open-burger {
-	background-color: black;
-	height: 50px;
-	width: 100px;
-	padding: 0.5em 0;
-	margin-top: -0.5em;
-}
-.open-burger span {
-	margin: 0.5em 0 0.5em 0.4em;
 }
