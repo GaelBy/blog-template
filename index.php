@@ -5,18 +5,15 @@
 	$page = 'home' /*page courante : home par default*/ ;
 	$error = '';
 
-<<<<<<< HEAD
-=======
-	try 
+
+	$link = mysqli_connect("localhost", "root", "troiswa", "blog");
+
+	if (!$link)
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'troiswa');
+	    require('views/bigerror.phtml');
+	    exit;
 	}
-	catch (Exception $e)
-	{
-		die('Erreur : ' . $e->getMessage());
-	}
-	
->>>>>>> cde2324f13717a322e0a7ec1ad697104a44de34b
+
 	if (isset($_GET['page']))
 	{
 		if (in_array($_GET['page'], $access))
@@ -24,6 +21,7 @@
 	}
 
 	$access_traitement = array('login', 'register', 'admin_article', 'commentaire', 'logout');
+	
 	if (in_array($page, $access_traitement))
 		require('apps/treatments/traitement_'.$page.'.php');// apps/traitement_login.php ou apps/traitement_register.php ou apps/traitement_contact.php
 	

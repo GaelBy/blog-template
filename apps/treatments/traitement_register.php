@@ -27,12 +27,11 @@ if (isset($_POST['login'], $_POST['email'], $_POST['confirmEmail'], $_POST['pass
 	if (empty($error))
 	{
 		$password = sha1($password);
-		$req = $bdd->prepare('INSERT INTO users(login, email, password) VALUES (:login, :email, :password)');
-		$req->execute(array(
-			'login' => $login,
-			'email' => $email,
-			'password' => $password
-			));
+		$query = 'INSERT INTO users(login, email, password) VALUES (?,?,?)';
+		$req = mysqli_prepare($link, $query);
+		mysqli_stmt_bind_param($req, "sss", $login, $email, $password);
+		mysqli_stmt_execute($req);
+		mysqli_stmt_close($req);
 		header('Location: index.php?page=login');
 		exit;
 	}
