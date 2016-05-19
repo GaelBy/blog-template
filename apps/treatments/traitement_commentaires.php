@@ -11,7 +11,7 @@
 				$imgUrl = $_POST['imgUrl'];
 				$date = $_POST['date'];
 
-				if(strlen($content) 500<)
+				if(strlen($content) <500)
 					$error = 'Votre commentaire est trop long ! (> 500 caractères)';
 
 				if(empty($error))
