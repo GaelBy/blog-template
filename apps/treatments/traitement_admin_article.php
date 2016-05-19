@@ -13,6 +13,7 @@
 						//Supprimer un article
 						$id = $_GET['id'];
 						$query = 'DELETE FROM articles WHERE id = ? LIMIT 1';
+						/** Pascal : Requête préparée inutile **/
 						$req = mysqli_prepare($link, $query);
 						mysqli_stmt_bind_param($req, "i", $id);
 						mysqli_stmt_execute($req);
@@ -20,6 +21,7 @@
 						
 						//Supprimer les commentaires
 						$query = 'DELETE FROM comments WHERE id_article = ?';
+						/** Pascal : Requête préparée inutile, on va voir les cascades bientôt ! **/
 						$req = mysqli_prepare($link, $query);
 						mysqli_stmt_bind_param($req, "i", $id);
 						mysqli_stmt_execute($req);
@@ -41,19 +43,19 @@
 					if (strlen($title) < 3)
 						$error = 'Titre trop court';
 					else if (strlen($title) > 32)
-						$error = 'Titre trop long';
+						$error = 'Titre trop long';/** Pascal : Max dans la db : 63 **/
 
 					if (!filter_var($imgUrl, FILTER_VALIDATE_URL))
 						$error = 'L\'url de votre image n\'est pas valide';
 
 					if (strlen($description) < 10 )
 						$error ='Description trop courte';
-					else if (strlen($description) > 128) 
+					else if (strlen($description) > 128) /** Pascal : Max dans la db : 127 **/
 						$error = 'Description trop longue';
 
 					if (strlen($content) < 30 )
 						$error ='Le contenu est trop court';
-					else if (strlen($content) > 1024) 
+					else if (strlen($content) > 1024) /** Pascal : Max dans la db : 1023 **/
 						$error = 'Le contenu est trop long';
 
 					if (empty($error))
@@ -64,6 +66,7 @@
 							$author = $_SESSION['login'];
 							$query = 'INSERT INTO articles (author, title, description, content, image) VALUES (?,?,?,?,?)';
 							$req = mysqli_prepare($link, $query);
+							/** Pascal : Requête préparée inutile **/
 							mysqli_stmt_bind_param($req, "sssss", $author, $title, $description, $content, $imgUrl);
 							mysqli_stmt_execute($req);
 							mysqli_stmt_close($req);
@@ -79,6 +82,7 @@
 								$lastDate = date('Y-m-d H:i:s');
 								$query = 'UPDATE articles SET title = ?, description = ?, content = ?, image = ?, `date` = ?, last_date = ? WHERE id = ?';
 								$req = mysqli_prepare($link, $query);
+								/** Pascal : Requête préparée inutile **/
 								mysqli_stmt_bind_param($req, "ssssssi", $title, $description, $content, $imgUrl, $createDate, $lastDate, $id);
 								mysqli_stmt_execute($req);
 								mysqli_stmt_close($req);
@@ -97,7 +101,7 @@
 		else
 		{
 			//redirection + msg disant "Vous n'avez pas les droits necessaire pour acceder à cette page"
-			$error = 'Vous n\'avez pas les droits nécessaires';
+			$error = 'Vous n\'avez pas les droits nécessaires';/** Pascal : Le message d'erreur ne s'affichera jamais si vous faites une redirection :) **/
 			header('Location: index.php?page=home');
 			exit;
 		}
