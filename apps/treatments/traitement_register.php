@@ -1,17 +1,17 @@
 <?php
 
-if (isset($_POST['pseudo'], $_POST['email'], $_POST['confirmEmail'], $_POST['password'], $_POST['confirmPassword']))
+if (isset($_POST['login'], $_POST['email'], $_POST['confirmEmail'], $_POST['password'], $_POST['confirmPassword']))
 {
 
-	$pseudo = $_POST['pseudo'];
+	$login = $_POST['login'];
 	$email = $_POST['email'];
 	$confirmEmail = $_POST['confirmEmail'];
 	$password = $_POST['password'];
 	$confirmPassword = $_POST['confirmPassword'];
 
-	if (strlen($pseudo) <2)
+	if (strlen($login) <2)
 		$error = 'Votre pseudo est trop court ! (< 2 caractères)';
-	else if (strlen($pseudo) >32)
+	else if (strlen($login) >32)
 		$error = 'Votre pseudo est trop long ! (> 32 caractères)';
 
 	if ($email != $confirmEmail)
@@ -29,7 +29,7 @@ if (isset($_POST['pseudo'], $_POST['email'], $_POST['confirmEmail'], $_POST['pas
 		$password = sha1($password);
 		$req = $bdd->prepare('INSERT INTO users(login, email, password) VALUES (:login, :email, :password)');
 		$req->execute(array(
-			'login' => $pseudo,
+			'login' => $login,
 			'email' => $email,
 			'password' => $password
 			));
