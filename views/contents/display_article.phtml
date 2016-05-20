@@ -1,21 +1,24 @@
 <article>
+	<img class="image-article" src="<?=$article['image']?>" alt"illustration article">
+	
 	<div class="bloc-article">
-		<img class="image-article" src="<?=$article['image']?>" alt"illustration article">
 		<div class="menu-burger-container">
-			<?php require 'apps/contents/menu_burger.php'; ?>
+		<?php require 'apps/contents/menu_burger.php'; ?>
 		</div>
-		<div class="article">
-			<h1><?=$article['title']?></h1>
-			<p><?=$article['date']?></p>
-		</div>
-		<div class="text-article"> 
-			<p><?=$article['description']?></p>
-		</div>
+	
+		<div class="article">	
+			<h1 class="titre-article"><?=$article['title']?></h1>
+			<p class="date-article"><?=$article['date']?></p>
+	
+			<div class="text-article"> 
+				<p><?=$article['description']?></p>
+			</div>
 			
-		<div class="footer-article">
-			<p><?=$article['author']?></p>
-			<a href="index.php?page=article&#commentaires"><?=$nbrComm?> commentaires.</a>
-			<a href="index.php?page=article&id=<?=$article['id']?>">Lire la suite..</a>
+			<div class="footer-article">
+				<p class="author"><?=$article['author']?></p>
+				<a href="index.php?page=article&#commentaires"><?=$nbrComm?> commentaires.</a>
+				<a href="index.php?page=article&id=<?=$article['id']?>">Lire la suite..</a>
+			</div>
 		</div>
 	</div>
 </article>

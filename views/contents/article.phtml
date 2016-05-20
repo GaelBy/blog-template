@@ -1,28 +1,25 @@
-<article class="container-article">
+<article>
+	<img class"image-article" src="<?=$image?>" alt="">
+
 	<div class="bloc-article">
-		<img class"image-article" src="<?=$image?>" alt="">
-		
-		<div class="menu-burger-container">
+		<div class="menu-burger">
 		<?php require "apps/contents/menu_burger.php"; ?>
 		</div>
-		
-		<div class="article">
-			<h1><?=$title?></h1>
-			<p><?=$createDate?></p>
-		</div>
+			
+		<div class="article">	
+			<h1 class="titre-article"><?=$title?></h1>
+			<p class="date-article"><?=$createDate?></p>
 
-		<div class="text-article">
-			<p><?=$content?></p>
-		</div>
-		
-		<div>
-			<p><?=$author?></p>
-		</div>
-		<div>
-			<a href="index.php?page=commentaires&articleid=<?=$id?>">Ajouter un commentaire</a>
-		</div>
-		<div>
-			<?php require "apps/contents/display_commentaires.php"; ?>
+			<div class="text-article">
+				<p><?=$content?></p>
+			</div>
+			
+			<div>
+				<a href="index.php?page=commentaires&articleid=<?=$id?>">Ajouter un commentaire</a>
+			</div>
+
+			<p class="author"><?=$author?></p>
+			<p><?php require "apps/contents/commentaires.php"; ?></p>
 		</div>
 	</div>
 </article>

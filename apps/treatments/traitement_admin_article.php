@@ -18,21 +18,21 @@
 						
 						//Supprimer les commentaires
 						/** Pascal : On verra les cascades bientôt ! **/
-						$query = 'DELETE FROM comments
+						/*$query = 'DELETE FROM comments
 						WHERE id_article = '.$id;
 						mysqli_query($link, $query);
 						header('Location: index.php?page=home');
-						exit;
+						exit;*/
 					}
 					else
 						$error = 'Il manque l\'id de l\'article';
 				}
 				else if (isset($_POST['title'], $_POST['imgUrl'], $_POST['description'], $_POST['content'], $_POST['createDate']))
 				{
-					$title = $_POST['title'];
-					$imgUrl = $_POST['imgUrl'];
-					$description = $_POST['description'];
-					$content = $_POST['content'];
+					$title = mysqli_real_escape_string($link, $_POST['title']);
+					$imgUrl = mysqli_real_escape_string($link, $_POST['imgUrl']);
+					$description = mysqli_real_escape_string($link, $_POST['description']);
+					$content = mysqli_real_escape_string($link, $_POST['content']);
 					$createDate = $_POST['createDate'];
 
 					if (strlen($title) < 3)
