@@ -18,7 +18,7 @@
 				$nbrComm++;
 		}
 		
-		$id = $article['id'];
+		$articleid = $article['id'];
 
 		require 'views/contents/display_article.phtml';
 	}
