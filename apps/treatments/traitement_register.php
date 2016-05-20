@@ -25,7 +25,7 @@
 
 		if (empty($error))
 		{
-			$password = sha1($password);/** Pascal : C'est bien mais on fera bientôt mieux :) **/
+			$password = password_hash($password, PASSWORD_BCRYPT, array("cost"=>8));/** Pascal : C'est bien mais on fera bientôt mieux :) **/
 			$query = 'INSERT INTO users(login, email, password) VALUES ("'.$login.'", "'.$email.'", "'.$password.'")';
 			/** Pascal : Pour le status dans la db, utilisez plutot un boolean qu'un varchar : 0 = user et 1 = admin **/
 			mysqli_query($link, $query);

@@ -1,7 +1,7 @@
 <?php
 	if (isset($_SESSION['login']))
 	{
-		if ($_SESSION['status'] == 'admin')
+		if (isset($_SESSION['admin']) && $_SESSION['admin'] == '1')
 		{
 			if (isset($_GET['action']))
 			{
@@ -20,9 +20,9 @@
 						/** Pascal : On verra les cascades bientôt ! **/
 						/*$query = 'DELETE FROM comments
 						WHERE id_article = '.$id;
-						mysqli_query($link, $query);
+						mysqli_query($link, $query);*/
 						header('Location: index.php?page=home');
-						exit;*/
+						exit;
 					}
 					else
 						$error = 'Il manque l\'id de l\'article';
@@ -59,9 +59,13 @@
 						{
 							//creation d'un article
 							$author = $_SESSION['login'];
-
+							$query = "SELECT id 
+							FROM users 
+							WHERE login = '".$author."'";
+							$res = mysqli_query($link, $query);
+							$author_id = mysqli_fetch_assoc($res);
 							$query = "INSERT INTO articles (author, title, description, content, image) 
-							VALUES ('".$author."','".$title."','".$description."','".$content."','".$imgUrl."')";
+							VALUES ('".$author_id['id']."','".$title."','".$description."','".$content."','".$imgUrl."')";
 							mysqli_query($link, $query);
 							header('Location: index.php?page=home');
 							exit;

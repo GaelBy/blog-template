@@ -2,8 +2,11 @@
 	if(isset($_GET['articleid']))
 	{
 		$articleid = $_GET['articleid'];
-		$query = 'SELECT id, author, title, content, image, `date` 
-		FROM articles WHERE id = '.$articleid;
+		$query = 'SELECT articles.id, users.login AS author, title, content, image, articles.`date` 
+		FROM articles 
+		INNER JOIN users
+		ON articles.author = users.id
+		WHERE articles.id = '.$articleid;
 		
 		$res = mysqli_query($link, $query);
 		while ($article = mysqli_fetch_assoc($res))
