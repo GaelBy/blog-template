@@ -7,7 +7,7 @@
 				$articleid = $_GET['articleid'];
 				$query = "DELETE FROM comments WHERE id=".$commid;
 				mysqli_query($link, $query);
-				header('Location: index.php?page=article&id='.$articleid);
+				header('Location: index.php?page=article&articleid='.$articleid);
 				exit;
 			}
 		else if (isset($_POST['action']) && isset($_POST['articleid']))
@@ -27,7 +27,7 @@
 				{
 					$query = 'UPDATE comments SET content = "'.$content.'" WHERE id = "'.$commid.'"';
 					mysqli_query($link, $query);
-					header('Location: index.php?page=article&id='.$articleid);
+					header('Location: index.php?page=article&articleid='.$articleid);
 					exit;
 				}
 
@@ -40,7 +40,7 @@
 				{
 					$query = "INSERT INTO comments(id_article, author, content) VALUES ('".$articleid."', '".$author."', '".$content."')";
 					mysqli_query($link, $query);
-					header('Location: index.php?page=article&id='.$articleid);
+					header('Location: index.php?page=article&articleid='.$articleid);
 					exit;
 				}
 			}

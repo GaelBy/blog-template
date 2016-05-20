@@ -1,5 +1,4 @@
 <?php
-	$articleid = $id;
 	$reqComm = "SELECT comments.id, comments.author, comments.content, comments.date
 				FROM comments
 				WHERE comments.id_article=".$articleid;

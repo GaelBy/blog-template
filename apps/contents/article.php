@@ -1,9 +1,9 @@
 <?php
-	if(isset($_GET['id']))
+	if(isset($_GET['articleid']))
 	{
-		$id = $_GET['id'];
+		$articleid = $_GET['articleid'];
 		$query = 'SELECT id, author, title, content, image, `date` 
-		FROM articles WHERE id = '.$id;
+		FROM articles WHERE id = '.$articleid;
 		
 		$res = mysqli_query($link, $query);
 		while ($article = mysqli_fetch_assoc($res))
