@@ -4,7 +4,9 @@
 	$imgUrl = "http://...";
 	$imgUrlEdit = "";
 	$description = "La description de votre article...";
+	$descriptionEdit = "";
 	$content = "Le contenu de votre article...";
+	$contentEdit = "";
 	$createDate = '';
 
 	if (isset($_GET['action'], $_GET['id']) && $_GET['action'] == 'edit')
@@ -17,8 +19,8 @@
 		while ($article = mysqli_fetch_assoc($res))
 		{
 			$titleEdit = $article['title'];
-			$description = $article['description'];
-			$content = $article['content'];
+			$descriptionEdit = $article['description'];
+			$contentEdit = $article['content'];
 			$imgUrlEdit = $article['image'];
 			$createDate = $article['date'];
 		}
