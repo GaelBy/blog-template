@@ -28,7 +28,6 @@
 			$password = sha1($password);/** Pascal : C'est bien mais on fera bientôt mieux :) **/
 			$query = 'INSERT INTO users(login, email, password) VALUES ("'.$login.'", "'.$email.'", "'.$password.'")';
 			/** Pascal : Pour le status dans la db, utilisez plutot un boolean qu'un varchar : 0 = user et 1 = admin **/
-			var_dump($query);/** Pascal : Berk le var_dump :p **/
 			mysqli_query($link, $query);
 			header('Location: index.php?page=login');
 			exit;
