@@ -71,7 +71,6 @@
 							if (isset($_GET['id']))
 							{
 								//modifier un article
-								//il faut auto echapper les '
 								$id = $_GET['id'];
 								$lastDate = date('Y-m-d H:i:s');
 								$query = 'UPDATE articles 
