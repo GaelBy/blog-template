@@ -2,8 +2,10 @@
 	$reqComm = "SELECT id_article 
 				FROM comments";
 
-	$reqArticle = "SELECT id, author, title, description, content, image, `date`
-				   FROM articles";
+	$reqArticle = "SELECT articles.id, users.login AS author, title, description, content, image, articles.`date`
+				   FROM articles
+				   INNER JOIN users
+				   ON articles.author = users.id";
 
 	$resultArticle  = mysqli_query($link, $reqArticle);
 

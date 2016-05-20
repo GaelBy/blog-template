@@ -20,7 +20,7 @@
 			else if (strlen($content) > 511)
 				$error = "commentaire trop long";
 
-			if (($_SESSION['status'] == 'admin'|| $_POST['author'] == $_SESSION['login'])
+			if (((isset($_SESSION['admin']) && $_SESSION['admin'] == '1')|| $_POST['author'] == $_SESSION['login'])
 				&& $_POST['action'] == 'edit') //EDIT COMM
 			{
 				if (empty($error))
@@ -32,13 +32,17 @@
 				}
 
 			}
-			if (($_SESSION['status'] == 'admin' || $_SESSION['status'] == 'user')
-					 && $_POST['action'] == 'add')
+			if ($_POST['action'] == 'add')
 			{
 				$author = $_SESSION['login'];
 				if (empty($error))
 				{
-					$query = "INSERT INTO comments(id_article, author, content) VALUES ('".$articleid."', '".$author."', '".$content."')";
+					$query = "SELECT id FROM users WHERE login = '".$author."'";
+					$res = mysqli_query($link, $query);
+					$author_id = mysqli_fetch_assoc($res);
+							
+					$query = "INSERT INTO comments(id_article, author, content) 
+					VALUES ('".$articleid."', '".$author_id['id']."', '".$content."')";
 					mysqli_query($link, $query);
 					header('Location: index.php?page=article&articleid='.$articleid);
 					exit;
