@@ -9,6 +9,8 @@
 
 	while ($comments = mysqli_fetch_assoc($resultComm))
 	{
+		$date = date_create_from_format('Y-m-d H:i:s', $comments['date']);
+		$comments['date'] = date_format($date, 'd/m/Y H:i:s');
 		require "views/contents/display_commentaires.phtml";
 	}
 ?>

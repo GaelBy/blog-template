@@ -21,7 +21,9 @@
 		}
 		
 		$articleid = $article['id'];
-
+		$date = date_create_from_format('Y-m-d H:i:s', $article['date']);
+		$article['date'] = date_format($date, 'd/m/Y H:i:s');
+		
 		require 'views/contents/display_article.phtml';
 	}
 ?>
