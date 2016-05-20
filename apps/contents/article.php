@@ -2,18 +2,18 @@
 	if(isset($_GET['id']))
 	{
 		$id = $_GET['id'];
-<<<<<<< HEAD
-		$query = 'SELECT id, author, title, content, image, `date FROM articles WHERE id = ?';
-=======
-		$query = 'SELECT id, author, title, content, image, `date` FROM articles WHERE id = ?';
->>>>>>> b4b2642605b3da145a604f150aa2b54ae0a15433
+		$query = 'SELECT id, author, title, content, image, `date` 
+		FROM articles WHERE id = '.$id;
 		
-		$req = mysqli_prepare($link, $query);
-		mysqli_stmt_bind_param($req, "i", $id);
-		mysqli_stmt_execute($req);
-		mysqli_stmt_bind_result($req, $id, $author, $title, $content, $image, $createDate);
-		mysqli_stmt_fetch($req);
-		mysqli_stmt_close($req);
+		$res = mysqli_query($link, $query);
+		while ($article = mysqli_fetch_assoc($res))
+		{
+			$author = $article['author'];
+			$title = $article['title'];
+			$content = $article['content'];
+			$image = $article['image'];
+			$createDate = $article['date'];
+		}
 
 		require'views/contents/article.phtml';
 	}
