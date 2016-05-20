@@ -14,7 +14,6 @@ body{
 	line-height: 1.8;
 	color: #000;
 	
-	height: 100%;
 }
 
 .body-container{
@@ -88,32 +87,72 @@ ul.header-nav{
 }
 /* ARTICLE*/
 
-.container-article{
+article{
 	width: 85%;
 	margin: 0 auto;
+	padding: 20px;
+	width: 70%;
 }
 
+.image-article{
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	height: 300px;
+	padding-bottom: 20px;
+	object-fit: cover;
+}
+
+.bloc-article{
+	border-top: 2px solid #333;
+}
+
+.article{
+	margin: 0 auto;
+	text-align: center;
+}
+
+.titre-article{
+	font-family: 'Playfair Display', serif;
+}
+
+.date-article, .author{
+	color: #7C7C7C;
+}
+
+.text-article, .footer-article{
+	text-align: justify;
+}
 
 /*MENU-BURGER*/
 .nav-menu-burger {
 	width: 50px;
 	height: 50px;
-	background-color: black;
+	background-color: white;
 	padding: 0.2em 0;
 }
 .open-menu-burger span{
 	display: block;
+	border-radius: 2px;
 	width: 40px;
 	height: 5px;
 	background-color: #1BB581;
-	margin: 0.5em auto;
+	margin: 0.5em 0.2em;
+}
+.open-burger {
+	padding-top: 0.2em;
+	height: 100%;
+	width: 100px;
+	background-color: #333;
 }
 .menu-burger {
+	position: absolute;
+	z-index: 1;
 	display: none;
 	width: 100px;
 	padding: 0;
 	margin: 0;
-	background-color: black;
+	background-color: #333;
 	list-style-type: none;
 }
 .menu-burger li {
@@ -122,13 +161,14 @@ ul.header-nav{
 .menu-burger li a {
 	color: #ccc;
 	text-decoration: none;
+
 }
 .open-burger {
-	background-color: black;
+	background-color: #333;
 	height: 50px;
 	width: 100px;
 	padding: 0.5em 0;
-	margin-top: -0.5em;
+	margin-top: -0.2em;
 }
 .open-burger span {
 	margin: 0.5em 0 0.5em 0.4em;
@@ -163,4 +203,5 @@ footer div ul li a {
 }
 footer div ul li a:hover {
 	color:#b72e66;
+
 }

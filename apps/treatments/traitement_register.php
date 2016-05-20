@@ -11,7 +11,7 @@
 		if (strlen($login) <2)
 			$error = 'Votre pseudo est trop court ! (< 2 caractères)';
 		else if (strlen($login) >32)
-			$error = 'Votre pseudo est trop long ! (> 32 caractères)';
+			$error = 'Votre pseudo est trop long ! (> 32 caractères)';/** Pascal : Attention dans la db le champs fait 31 caractères **/
 
 		if ($email != $confirmEmail)
 			$error = 'E-mail différents !';
@@ -25,14 +25,11 @@
 
 		if (empty($error))
 		{
-			$password = sha1($password);
-			$query = 'INSERT INTO users(login, email, password) VALUES (?,?,?)';
-			$req = mysqli_prepare($link, $query);
-
-			mysqli_stmt_bind_param($req, "sss", $login, $email, $password);
-			mysqli_stmt_execute($req);
-			mysqli_stmt_close($req);
-			
+			$password = sha1($password);/** Pascal : C'est bien mais on fera bientôt mieux :) **/
+			$query = 'INSERT INTO users(login, email, password) VALUES ("'.$login.'", "'.$email.'", "'.$password.'")';
+			/** Pascal : Pour le status dans la db, utilisez plutot un boolean qu'un varchar : 0 = user et 1 = admin **/
+			var_dump($query);/** Pascal : Berk le var_dump :p **/
+			mysqli_query($link, $query);
 			header('Location: index.php?page=login');
 			exit;
 		}
