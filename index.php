@@ -7,6 +7,7 @@
 	require('config.php');
 	$link = mysqli_connect("".$localhost.", ".$login.", ".$pass.", ".$datatbase."");
 
+
 	if (!$link)
 	{
 	    require('views/bigerror.phtml');
