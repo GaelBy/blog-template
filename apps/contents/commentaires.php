@@ -14,7 +14,7 @@
 			FROM comments 
 			INNER JOIN users
 			ON comments.author = users.id
-			WHERE id = '.$commid;
+			WHERE comments.id = '.$commid;
 			$req = mysqli_query($link, $query);
 			$commContent = mysqli_fetch_assoc($req);
 			$author = $commContent['author'];
