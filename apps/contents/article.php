@@ -15,7 +15,9 @@
 			$title = $article['title'];
 			$content = $article['content'];
 			$image = $article['image'];
-			$createDate = $article['date'];
+			$date = date_create_from_format('Y-m-d H:i:s', $article['date']);
+			$createDate = date_format($date, 'd/m/Y H:i:s');
+		
 		}
 
 		require'views/contents/article.phtml';
