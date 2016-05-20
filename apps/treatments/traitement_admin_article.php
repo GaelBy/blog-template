@@ -37,7 +37,7 @@
 
 					if (strlen($title) < 3)
 						$error = 'Titre trop court';
-					else if (strlen($title) > 32)
+					else if (strlen($title) > 63)
 						$error = 'Titre trop long';/** Pascal : Max dans la db : 63 **/
 
 					if (!filter_var($imgUrl, FILTER_VALIDATE_URL))
@@ -45,12 +45,12 @@
 
 					if (strlen($description) < 10 )
 						$error ='Description trop courte';
-					else if (strlen($description) > 128) /** Pascal : Max dans la db : 127 **/
+					else if (strlen($description) > 127) /** Pascal : Max dans la db : 127 **/
 						$error = 'Description trop longue';
 
 					if (strlen($content) < 30 )
 						$error ='Le contenu est trop court';
-					else if (strlen($content) > 1024) /** Pascal : Max dans la db : 1023 **/
+					else if (strlen($content) > 1023) /** Pascal : Max dans la db : 1023 **/
 						$error = 'Le contenu est trop long';
 
 					if (empty($error))
@@ -73,14 +73,14 @@
 								//modifier un article
 								$id = $_GET['id'];
 								$lastDate = date('Y-m-d H:i:s');
-								$query = "UPDATE articles 
-								SET title = '".$title."', 
-								description = '".$description."', 
-								content = '".$content."', 
-								image = '".$imgUrl."', 
-								`date` = '".$createDate."', 
-								last_date = '".$lastDate."'' 
-								WHERE id = ".$id;
+								$query = 'UPDATE articles 
+								SET title = \''.$title.'\', 
+								description = \''.$description.'\', 
+								content = \''.$content.'\', 
+								image = \''.$imgUrl.'\', 
+								`date` = \''.$createDate.'\', 
+								last_date = \''.$lastDate.'\' 
+								WHERE id = '.$id;
 								mysqli_query($link, $query);
 								header('Location: index.php?page=home');
 								exit;
@@ -97,7 +97,7 @@
 		else
 		{
 			//redirection + msg disant "Vous n'avez pas les droits necessaire pour acceder à cette page"
-			$error = 'Vous n\'avez pas les droits nécessaires';/** Pascal : Le message d'erreur ne s'affichera jamais si vous faites une redirection :) **/
+			//$error = 'Vous n\'avez pas les droits nécessaires';/** Pascal : Le message d'erreur ne s'affichera jamais si vous faites une redirection :) **/
 			header('Location: index.php?page=home');
 			exit;
 		}
