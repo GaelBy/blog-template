@@ -3,14 +3,14 @@
 	{
 		$email = $_POST['email'];
 		$pass = $_POST['password'];
-		$req = 'SELECT * FROM users';/** Pascal : Donc si vous avez 9999999999999999999999 utilisateurs vous les récupérez tous pour savoir si y'en a un qui correspond ? **/
+		$req = 'SELECT login, password, status FROM users
+		WHERE email = "'.$email.'"';/** Pascal : Donc si vous avez 9999999999999999999999 utilisateurs vous les récupérez tous pour savoir si y'en a un qui correspond ? **/
 		/** Pascal : Selectionnez plutot les users qui ont le bon email :) **/
 		/** Pascal : SELECT * FROM users WHERE email=$email **/
 		$users = mysqli_query($link, $req);
-
-		while ($line = mysqli_fetch_assoc($users))
+		if (!empty($users))
 		{
-			if ($line['email'] == $email)
+			while ($line = mysqli_fetch_assoc($users))
 			{
 				if ($line['password'] == sha1($pass))
 				{
@@ -24,6 +24,7 @@
 				$error = 'Mot de passe incorrect';
 			}
 		}
-		$error = 'Email non reconnu';
+		else
+			$error = 'Email non reconnu';
 	}
 ?>
