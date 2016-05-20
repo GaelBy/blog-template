@@ -5,7 +5,7 @@
 	$page = 'home' /*page courante : home par default*/ ;
 	$error = '';
 	require('config.php');
-	$link = mysqli_connect("".$localhost.", ".$login.", ".$pass.", ".$database."");
+	$link = mysqli_connect($localhost, $login, $pass, $database);
 
 
 	if (!$link)
