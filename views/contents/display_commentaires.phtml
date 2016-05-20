@@ -1,15 +1,18 @@
 <div class="bloc-comments">
+	
+	<div class="auteur-date-comments clearfix">
+		<p class="pull-left author-commentaires"><?=$comments['author']?> :</p>
+		<p class="pull-right date-commentaires"><?=$comments['date']?></p>
+	</div>
+
+	<div class="content-comments">
+		<p><?=$comments['content']?></p>
+	</div>
 	<div>
 		<?php
-		require  'apps/contents/menu_comm.php'
+		require 'apps/contents/menu_comm.php'
 		?>
 	</div>
 
-	<div>
-		<p><?=$comments['author']?></p><p><?=$comments['date']?></p>
-	</div>
 
-	<div>
-		<p><?=$comments['content']?></p>
-	</div>
 </div>
