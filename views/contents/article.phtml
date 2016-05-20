@@ -17,8 +17,12 @@
 		
 		<div>
 			<p><?=$author?></p>
-			<p><?php require "apps/contents/display_commentaires.php"; ?></p>
 		</div>
-		<div><a href="index.php?page=commentaires&id=<?=$id?>">Ajouter un commentaire</a></div>
+		<div>
+			<a href="index.php?page=commentaires&articleid=<?=$id?>">Ajouter un commentaire</a>
+		</div>
+		<div>
+			<?php require "apps/contents/display_commentaires.php"; ?>
+		</div>
 	</div>
 </article>

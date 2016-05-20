@@ -1,8 +1,8 @@
 <?php
-	$article_id = $_GET['id'];
+	$articleid = $id;
 	$reqComm = "SELECT comments.id, comments.author, comments.content, comments.date
 				FROM comments
-				WHERE comments.id_article=".$article_id;
+				WHERE comments.id_article=".$articleid;
 
 	$resultComm = mysqli_query($link, $reqComm);
 

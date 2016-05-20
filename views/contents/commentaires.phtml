@@ -7,8 +7,12 @@
 <form method="POST">
 	<div>
 		<label for="content">Commentaire : </label>
-		<textarea name="content" cols="30" rows="3"></textarea>
+		<textarea name="content" cols="30" rows="3"><?=$commContent['content']?></textarea>
 	</div>
 
-	<button type="submit">Submit</button>
+	<input type="hidden" name="author" value="<?=$author?>">
+	<input type="hidden" name="articleid" value="<?=$articleid?>">
+	<input type="hidden" name="commid" value="<?=$commid?>">
+	<input type="hidden" name="action" value="<?=$action?>">
+	<input type="submit" value="Valider"/>
 </form>
