@@ -1,18 +1,26 @@
-<div class="">
-	<div class="">
+<div class="login-container">
+	<div class="titre-login text-center">
+		<span class="fa-stack fa-4x">
+			<i class="fa fa-rocket fa-stack-1x icon"></i>
+		</span>
 
-		<h2 class="">S'identifier</h2>
+		<h1>S'identifier</h1>
+		<span class="separation-noir"> </span>
+		<span class="separation-vert"> </span>
+		
+		<div class="error">
+			<?=$error?>
+		</div>
 	</div>
-	<div class="error">
-		<?=$error?>
-	</div>
+
 	
-	<form class="form-style" method="POST">
-		<div class="input-style clearfix">
+	
+	<form class="form-style clearfix" method="POST">
+		<div class="form-group clearfix">
 			<label for="email">E-mail :</label>
 			<input class="input" type="email" name="email" />
 		</div>
-		<div class="input-style clearfix">
+		<div class="form-group clearfix">
 			<label for="password">Mot de Passe :</label>
 			<input class="input" type="password" name="password" />
 		</div>

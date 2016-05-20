@@ -2,13 +2,14 @@
 	<img class="image-article" src="<?=$article['image']?>" alt"illustration article">
 	
 	<div class="bloc-article">
-		<div class="menu-burger-container">
-		<?php require 'apps/contents/menu_burger.php'; ?>
-		</div>
-	
-		<div class="article">	
+		<div class="article">
+		<div class="clearfix">
+			<div class="menu-burger-container pull-left">
+			<?php require 'apps/contents/menu_burger.php'; ?>
+			</div>
 			<h1 class="titre-article"><?=$article['title']?></h1>
 			<p class="date-article"><?=$article['date']?></p>
+		</div>
 	
 			<div class="text-article"> 
 				<p><?=$article['description']?></p>
