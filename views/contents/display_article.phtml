@@ -7,12 +7,12 @@
 			<div class="menu-burger-container pull-left">
 			<?php require 'apps/contents/menu_burger.php'; ?>
 			</div>
-			<h1 class="titre-article"><?=$article['title']?></h1>
+			<h1 class="titre-article"><?=htmlentities($article['title'])?></h1>
 			<p class="date-article"><?=$article['date']?></p>
 		</div>
 	
 			<div class="text-article"> 
-				<p><?=$article['description']?></p>
+				<p><?=htmlentities($article['description'])?></p>
 			</div>
 			
 			<div class="footer-article">

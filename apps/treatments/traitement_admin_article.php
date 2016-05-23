@@ -45,12 +45,12 @@
 
 					if (strlen($description) < 10 )
 						$error ='Description trop courte';
-					else if (strlen($description) > 127) /** Pascal : Max dans la db : 127 **/
+					else if (strlen($description) > 127)
 						$error = 'Description trop longue';
 
 					if (strlen($content) < 30 )
 						$error ='Le contenu est trop court';
-					else if (strlen($content) > 1023) /** Pascal : Max dans la db : 1023 **/
+					else if (strlen($content) > 1023)
 						$error = 'Le contenu est trop long';
 
 					if (empty($error))

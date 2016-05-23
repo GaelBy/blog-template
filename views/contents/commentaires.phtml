@@ -7,7 +7,7 @@
 <form class="form-style" method="POST">
 	<div class="form-group clearfix">
 		<label for="content">Commenter un article: </label>
-		<textarea class="input" name="content" cols="30" rows="3"><?=$commContent['content']?></textarea>
+		<textarea class="input" name="content" cols="30" rows="3"><?=htmlentities($commContent['content'])?></textarea>
 	</div>
 
 	<input type="hidden" name="author" value="<?=$author?>">

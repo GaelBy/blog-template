@@ -8,11 +8,11 @@
 			
 		<div class="article">
 			<div class="article-container">
-				<h1 class="titre-article"><?=$title?></h1>
+				<h1 class="titre-article"><?=htmlentities($title)?></h1>
 				<p class="date-article"><?=$createDate?></p>
 
 				<div class="text-article">
-					<p><?=$content?></p>
+					<p><?=htmlentities($content)?></p>
 				</div>
 
 				<p class="author"><?=$author?></p>

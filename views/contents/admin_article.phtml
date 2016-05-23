@@ -14,19 +14,19 @@
 <form class="form-style" method="POST">
 	<div class="form-group clearfix">
 		<label for="title">Titre : </label>
-		<input class="input" type="text" name="title" placeholder="<?=$title?>" value="<?=$titleEdit?>"/>
+		<input class="input" type="text" name="title" placeholder="<?=$title?>" value="<?=htmlentities($titleEdit)?>"/>
 	</div>
 	<div class="form-group clearfix">
 		<label for="imgUrl">Illustration (url) : </label>
-		<input class="input" type="url" name="imgUrl" placeholder="<?=$imgUrl?>" value="<?=$imgUrlEdit?>"/>
+		<input class="input" type="url" name="imgUrl" placeholder="<?=$imgUrl?>" value="<?=htmlentities($imgUrlEdit)?>"/>
 	</div>
 	<div class="form-group clearfix">
 		<label for="description">Description : </label>
-		<textarea class="input" name="description" cols="30" rows="3" placeholder="<?=$description?>"><?=$descriptionEdit?></textarea>
+		<textarea class="input" name="description" cols="30" rows="3" placeholder="<?=$description?>"><?=htmlentities($descriptionEdit)?></textarea>
 	</div>
 	<div class="form-group clearfix">
 		<label for="content">Contenu : </label>
-		<textarea class="input"name="content" cols="30" rows="10" placeholder="<?=$content?>"><?=$contentEdit?></textarea>
+		<textarea class="input"name="content" cols="30" rows="10" placeholder="<?=$content?>"><?=htmlentities($contentEdit)?></textarea>
 	</div>
 
 	<div class="text-center"><button class="valid-button" type="submit" name="createDate" value="<?=$createDate?>">Submit</button></div>

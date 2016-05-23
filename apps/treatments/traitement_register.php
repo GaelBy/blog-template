@@ -2,11 +2,11 @@
 	if (isset($_POST['login'], $_POST['email'], $_POST['confirmEmail'], $_POST['password'], $_POST['confirmPassword']))
 	{
 
-		$login = $_POST['login'];
-		$email = $_POST['email'];
-		$confirmEmail = $_POST['confirmEmail'];
-		$password = $_POST['password'];
-		$confirmPassword = $_POST['confirmPassword'];
+		$login = mysqli_real_escape_string($link, $_POST['login']);
+		$email = mysqli_real_escape_string($link, $_POST['email']);
+		$confirmEmail = mysqli_real_escape_string($link, $_POST['confirmEmail']);
+		$password = mysqli_real_escape_string($link, $_POST['password']);
+		$confirmPassword = mysqli_real_escape_string($link, $_POST['confirmPassword']);
 
 		if (strlen($login) <2)
 			$error = 'Votre pseudo est trop court ! (< 2 caractères)';
